@@ -11,3 +11,4 @@ matplotlib>=1.4.3
 pandas>=0.19
 imblearn==0.0
 seaborn >=0.11.2
+mysql==0.0.3
