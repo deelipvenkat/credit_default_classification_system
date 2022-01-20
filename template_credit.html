@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
   <meta charset="UTF-8">
   <title>AUTOMATED CREDIT DECISION SYSTEM</title>
@@ -11,13 +11,13 @@
 	<h1>AUTOMATED CREDIT DECISION SYSTEM</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('GO')}}"method="post">
+    <form action="{{ url_for('predict')}}"method="post">
     	<input type="text" name="Installments" placeholder="INSTALLMENTS" required="required" />
         <input type="text" name="CARD_ISSUED" placeholder="CARD_ISSUED" required="required" />
 		<input type="text" name="NO_CLIENTS" placeholder="NO_CLIENTS" required="required" />
         <input type="text" name="NEGATIVE_BALANCE" placeholder="NEGATIVE_BALANCE" required="required" />
                                       <input type="text" name="FIXED_SALARY" placeholder="FIXED_SALARY" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">GO</button>
+        <button type="submit" class="btn btn-primary btn-block btn-large">predict</button>
     </form>
 
    <br>
