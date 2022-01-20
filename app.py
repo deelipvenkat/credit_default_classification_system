@@ -25,10 +25,7 @@ def predict():
         final_features = [np.array(int_features)]
         final_features=scaler.transform(final_features)
     prediction = model.predict(final_features)
-    if prediction == 1:
-        output="LOAN APPROVED"
-    else:
-        output='LOAN APPLICATION REJECTED'
+    output='approved'
     
 
     return render_template('template_credit.html', prediction_text= output)
