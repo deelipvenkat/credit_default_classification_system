@@ -39,6 +39,27 @@ mydb = connector.connect(                # credentials for the PKDD'99 database 
 )
 ```
 
+### MUNGING THE DATA IN FINAL STRUCTURED FORM 
+
+```
+# LOAN FEATURE TRACING WITH OWNER CLIENT ID & DETAILS
+
+q="""SELECT * FROM loan 
+     JOIN account ON loan.account_id=account.account_id 
+     JOIN disp ON account.account_id=disp.account_id
+     JOIN client ON disp.client_id=client.client_id
+     LEFT JOIN card ON disp.disp_id=card.disp_id
+     LEFT JOIN district ON client.district_id=district.district_id
+     where disp.type="OWNER";
+    
+    
+    
+
+
+
+
+
+
 
 ### SMOTE FOR BALANCING DATASET
 
