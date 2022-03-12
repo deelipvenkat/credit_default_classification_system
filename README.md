@@ -25,6 +25,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from mysql import connector
+import pickle
 ```
 
 ### CONNECTING TO DATABASE USING MYSQL/CONNECTOR 
@@ -38,5 +39,28 @@ mydb = connector.connect(                # credentials for the PKDD'99 database 
 )
 ```
 
+### IMPLEMENTATION OF STRATIFIED K-FOLD
+```
+from sklearn.model_selection import RepeatedStratifiedKFold
+from sklearn.pipeline import Pipeline
+steps = list()
+steps.append(('scaler', StandardScaler()))
+steps.append(('log_model', LogisticRegression(random_state=0,C=0.00001)))
+pipeline = Pipeline(steps=steps)
+# define the evaluation procedure
+cv = RepeatedStratifiedKFold(n_splits=5, n_repeats=3, random_state=1)
+# evaluate the model using cross-validation
+scores = cross_val_score(pipeline, x_train, y_train, scoring='f1', cv=cv, n_jobs=-1)
+# report performance
+print('f1_score: mean: {} , std :{}'.format(scores.mean()*100, scores.std()*100))
+```
 
+f1_score: mean: 81.3485323661658 , std :3.627310607374865
 
+### CREATING PICKLE FILES
+```
+# The ml model & standard scaler is dumped into a pickle file.
+filename = 'credit_model.pkl'
+pickle.dump(classifier_lg, open(filename, 'wb'))
+pickle.dump(sc, open('scaler.pkl', 'wb'))
+```
