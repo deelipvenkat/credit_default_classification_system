@@ -7,3 +7,12 @@ The goal of this project is to assist Banks/NBFC in the process of credit decisi
 ### ABOUT THE DATASET
 
 I have used [PKDD'99](https://relational.fit.cvut.cz/dataset/Financial) Financial Dataset which is a real anonymized Czech Republic Bank data in relational database format.The bank has provided data about their clients, the accounts (transactions within several months), the loans already granted, the credit cards issued etc.
+
+
+### TECHNOLOGY STACK USED 
+
+I have built this project in jupyter notebok using python 3.7 & have used python flask to build the web application. Heroku Cloud Platform was used for the deployment of the model. To install all the dependencies for this project, download the requirements.txt file & run the below command line in the terminal.
+
+```
+pip install -r requirements.txt
+```
