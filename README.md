@@ -11,8 +11,18 @@ I have used [PKDD'99](https://relational.fit.cvut.cz/dataset/Financial) Financia
 
 ### TECHNOLOGY STACK USED 
 
-I have built this project in jupyter notebok using python 3.7 & have used python flask to build the web application. Heroku Cloud Platform was used for the deployment of the model. To install all the dependencies for this project, download the requirements.txt file & run the below command line in the terminal.
+I have built this project in jupyter notebok using python 3.7. Python MYSQL Connector was used for connecting to the database & converting the relational database into our final usuable form for building the machine learning model.I have used python flask to build the web application. Heroku Cloud Platform was used for the deployment of the model. To install all the dependencies for this project, download the requirements.txt file & run the below command line in the terminal.
 
 ```
 pip install -r requirements.txt
+```
+
+### IMPORTING LIBRARIES
+
+```
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from mysql import connector
 ```
