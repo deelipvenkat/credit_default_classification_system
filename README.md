@@ -39,6 +39,38 @@ mydb = connector.connect(                # credentials for the PKDD'99 database 
 )
 ```
 
+
+### SMOTE FOR BALANCING DATASET
+
+```
+from imblearn.over_sampling import SMOTE 
+sm = SMOTE(random_state=0)
+x_train, y_train = sm.fit_resample(x_train, y_train)
+
+```
+
+### FEATURE SCALING
+
+```
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+x_train = sc.fit_transform(x_train)
+```
+
+### VARIANCE INFLATION FACTOR (for multi-collinearity check)
+```
+# variance inflation factor to check multi-collinearity between features.
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+
+# VIF dataframe
+vif_data = pd.DataFrame()
+vif_data["feature"] = fe.columns
+# calculating VIF for each feature
+vif_data["VIF"] = [variance_inflation_factor(x_train, i)
+						for i in range(len(fe.columns))]
+```
+
+
 ### IMPLEMENTATION OF STRATIFIED K-FOLD
 ```
 from sklearn.model_selection import RepeatedStratifiedKFold
