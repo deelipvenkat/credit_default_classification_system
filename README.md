@@ -126,6 +126,8 @@ vif_data["VIF"] = [variance_inflation_factor(x_train, i)
 
 
 
+K-Fold Cross Validation is not suitable for handling imbalanced data because it randomly divides the data into k-folds. Folds might have negligible or no data from the minority class resulting in a highly biased results.To resolve this issue we use stratified k-fold which splits the data randomly & ensures that class imbalance distribution is maintained across each fold.
+
 
 ### IMPLEMENTATION OF STRATIFIED K-FOLD
 ```
