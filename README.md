@@ -6,7 +6,7 @@ The goal of this project is to assist Banks/NBFC in the process of credit decisi
 
 ### ABOUT THE DATASET
 
-I have used [PKDD'99](https://relational.fit.cvut.cz/dataset/Financial) Financial Dataset which is a real anonymized Czech Republic Bank data in relational database format.The bank has provided data about their clients, the accounts (transactions within several months), the loans already granted, the credit cards issued etc.
+I have used [PKDD'99](https://relational.fit.cvut.cz/dataset/Financial) Financial Dataset which is a real anonymized Czech Republic Bank data in ***relational database*** format.The bank has provided data about their clients, the accounts (transactions within several months), the loans already granted, the credit cards issued etc.
 
 
 ### TECHNOLOGY STACK USED 
