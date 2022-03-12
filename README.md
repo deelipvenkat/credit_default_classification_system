@@ -44,7 +44,7 @@ mydb = connector.connect(                # credentials for the PKDD'99 database 
 ```
 # LOAN FEATURE TRACING WITH OWNER CLIENT ID & DETAILS
 
-q="""SELECT * FROM loan 
+q=SELECT * FROM loan 
      JOIN account ON loan.account_id=account.account_id 
      JOIN disp ON account.account_id=disp.account_id
      JOIN client ON disp.client_id=client.client_id
@@ -54,7 +54,7 @@ q="""SELECT * FROM loan
     
     
     
-
+```
 
 
 
