@@ -56,10 +56,28 @@ q=SELECT * FROM loan
     
 ```
 
+### HANDLING MISSING VALUES
+```
+dt['status']=dt['status'].replace({'A':1,'B':0,'C':1,'D':0})
 
 
+```
 
 
+### ENCODING CATEGORICAL VARIABLES
+```
+dt['negative_balance']=dt['negative_balance'].fillna(0)
+dt['issued']=dt['issued'].fillna(0)
+
+```
+
+
+### HANDLING OUTLIERS
+
+```
+dt.loc[(dt.negative_balance>0),'negative_balance']=1
+dt.loc[(dt.issued != 0) ,'issued']=1
+```
 
 ### SMOTE FOR BALANCING DATASET
 
