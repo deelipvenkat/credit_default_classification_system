@@ -39,7 +39,7 @@ mydb = connector.connect(                # credentials for the PKDD'99 database 
 )
 ```
 
-### MUNGING THE DATA IN FINAL STRUCTURED FORM 
+### TRANSFORMING THE RELATIONAL DATASET INTO FINAL FORM 
 
 ```
 # LOAN FEATURE TRACING WITH OWNER CLIENT ID & DETAILS
@@ -55,6 +55,17 @@ q=SELECT * FROM loan
     
     
 ```
+
+### EXPLORATORY DATA ANALYSIS
+
+We have a inital feature set of . Now let's perform our initial investigation of the data to find patterns & to check some of our assumptions based on our intution using statistical techniques & graphical representations. We have used tableau due to the speed & comfort it provides for performing EDA on datasets with large number of features.
+Scipy was also used to perform some statisical tests.
+
+
+
+### FEATURE SELECTION
+
+
 
 ### HANDLING MISSING VALUES
 ```
@@ -109,6 +120,12 @@ vif_data["VIF"] = [variance_inflation_factor(x_train, i)
 						for i in range(len(fe.columns))]
 ```
 
+### MODEL TRAINING 
+
+
+
+
+
 
 ### IMPLEMENTATION OF STRATIFIED K-FOLD
 ```
@@ -128,8 +145,15 @@ print('f1_score: mean: {} , std :{}'.format(scores.mean()*100, scores.std()*100)
 
 f1_score: mean: 81.3485323661658 , std :3.627310607374865
 
+Since the dataset has class imbalance & the dataset size is small , it is better to stick to less complex models , as more complex models like random forest tend to overfit in such cases as we have seen in our tests above. So from the final results of the performance of various machine learning mdoels , it is wise to choose logistic regression as it tends to provide stable results & works well for class imbalances.
+
+
+
 ### CREATING PICKLE FILES
+Our final logistic regression model is stored in a pickle file which is used in deployment.
+
 ```
+
 # The ml model & standard scaler is dumped into a pickle file.
 filename = 'credit_model.pkl'
 pickle.dump(classifier_lg, open(filename, 'wb'))
