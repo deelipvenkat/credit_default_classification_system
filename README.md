@@ -264,3 +264,17 @@ web: gunicorn app:app
 Web indicates that it is a web app. 
 Gunicorn tells heroku to use gunicorn for your application.Gunicorn is a Python HTTP server for WSGI applications. It allows you to run Python applications concurrently by running multiple Python processes within a single dyno. Since it is a standard to use gunicorn in flask applications for deployments we are going to add it to our procfile. 
 The 1st app represents the python file that runs your application & the 2nd app represents the app name
+
+Now with all the necessary elements available we are going to deploy our model into heroku cloud platform. We are not going to go in-depth here how to deploy the model in heroku. Please refer to this link here to learn how to deploy applications in heroku.
+
+### DEPLOYMENT SAMPLES(add images)
+
+
+
+### END NOTE 
+
+
+
+### REFERENCES
+
+
