@@ -252,3 +252,15 @@ All the features inputs and the predict button & the placeholder for output of t
 </html>
 ```
 
+### DEPLOYING THE MODEL IN HEROKU
+
+
+With creating the flask python file & application web template file. We have to create a requirements.txt file which contains all the libraries with the versions used for building the model.
+
+Create a file name called Procfile (without .txt extension). A Procfile tells heroku how to start your application on it's servers.
+```
+web: gunicorn app:app
+```
+Web indicates that it is a web app. 
+Gunicorn tells heroku to use gunicorn for your application.Gunicorn is a Python HTTP server for WSGI applications. It allows you to run Python applications concurrently by running multiple Python processes within a single dyno. Since it is a standard to use gunicorn in flask applications for deployments we are going to add it to our procfile. 
+The 1st app represents the python file that runs your application & the 2nd app represents the app name
