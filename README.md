@@ -1,4 +1,4 @@
-# Automated_credit_decision_system
+# Automated_credit_decision_system (description build in progress)
 
 ### OBJECTIVE
 The goal of this project is to assist Banks/NBFC in the process of credit decision (i.e whether an application is approved or rejected) by working as a pre-filter for processing hundreds or thousands of applications received everyday so that the manual loan approval processes high quality loans. Also the number of features which a machine learning model considers might be impossible for a human to consider.
