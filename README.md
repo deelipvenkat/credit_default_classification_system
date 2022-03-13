@@ -147,7 +147,9 @@ print('f1_score: mean: {} , std :{}'.format(scores.mean()*100, scores.std()*100)
 
 f1_score: mean: 81.3485323661658 , std :3.627310607374865
 
-Since the dataset has class imbalance & the dataset size is small , it is better to stick to less complex models , as more complex models like random forest tend to overfit in such cases as we have seen in our tests above. So from the final results of the performance of various machine learning mdoels , it is wise to choose logistic regression as it tends to provide stable results & works well for class imbalances.
+Since the dataset has class imbalance & the dataset size is small , it is better to stick to less complex models , as more complex models like random forest tend to overfit in such cases as we have seen in our tests above. So from the final results of the performance of various machine learning mdoels , it is wise to choose logistic regression as it tends to provide stable results & works well for class imbalances. 
+
+Also since our dataset is very small using k-fold cross validation will give us a better idea of how different algorithms are performing rather than a single test train split.
 
 
 
