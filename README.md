@@ -164,3 +164,91 @@ filename = 'credit_model.pkl'
 pickle.dump(classifier_lg, open(filename, 'wb'))
 pickle.dump(sc, open('scaler.pkl', 'wb'))
 ```
+
+### CREATING WEB APP USING FLASK
+
+Now we create a new python file to build a web app & start importing necessary libraries. Please check the app.py file to see the complete flask application build.
+```
+import numpy as np
+from flask import Flask, request, jsonify, render_template
+import pickle
+```
+We then create a flask application instance by passing '__name__' as argument to the flask class. The __name__ variable takes the value of the python source file we are using
+In this case  it is 'app'.
+
+```
+app = Flask(__name__)
+```
+We then load our pickle files to use them in our deployment
+```
+model = pickle.load(open('credit_model.pkl', 'rb'))
+scaler =pickle.load(open('scaler.pkl', 'rb'))
+```
+
+
+```
+@app.route('/')
+def home():
+    return render_template('template_credit.html')
+```
+We want our webapp to take in inputs of values of all the features , run it throgh the ml model & return a respose whether the loan is approved or rejected.
+```
+@app.route('/predict',methods=['POST'])
+def predict():
+    if request.method=='POST':
+        '''
+    For rendering results on HTML GUI
+    '''
+        int_features = [float(x) for x in request.form.values()]
+        final_features = [np.array(int_features)]
+        final_features=scaler.transform(final_features)
+    prediction = model.predict(final_features)
+    if prediction == 1:
+        
+        output="LOAN APPROVED"
+    else:
+        output='LOAN APPLICATION REJECTED'
+    
+
+    return render_template('template_credit.html', prediction_text= output)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+### FRONT END BUILD OF THE APPLICATION
+
+All the features inputs and the predict button & the placeholder for output of the ml model are built here. Since this is a fairly simple html file with comments written in the document. Please take a look for yourself.
+
+```
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+  <title>CREDIT DECISION SYSTEM</title>
+</head>
+<body>
+ <div class="login">
+	<h1>AUTOMATED CREDIT DECISION SYSTEM</h1>
+
+     <!-- Inputs of all the features which are then passed into our ml model are created here -->
+     
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="INSTALLMENTS" placeholder="INSTALLMENTS" required="required" />
+        <input type="text" name="CARD_ISSUED" placeholder="CARD_ISSUED" required="required" />
+		<input type="text" name="NO_CLIENTS" placeholder="NO_CLIENTS" required="required" />
+        <input type="text" name="NEGATIVE_BALANCE" placeholder="NEGATIVE_BALANCE" required="required" />
+                                      <input type="text" name="FIXED_SALARY" placeholder="FIXED_SALARY" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">predict</button>
+    </form>
+   <br>
+   <br>
+<!--The output of the ml model is connected here >	 
+   {{ prediction_text }} 
+ </div>
+</body>
+</html>
+```
+
