@@ -128,6 +128,7 @@ vif_data["VIF"] = [variance_inflation_factor(x_train, i)
 
 K-Fold Cross Validation is not suitable for handling imbalanced data because it randomly divides the data into k-folds. Folds might have negligible or no data from the minority class resulting in a highly biased results.To resolve this issue we use stratified k-fold which splits the data randomly & ensures that class imbalance distribution is maintained across each fold.
 
+Also since our dataset is very small using k-fold cross validation will give us a better idea of how different algorithms are performing rather than a single test train split.
 
 ### IMPLEMENTATION OF STRATIFIED K-FOLD
 ```
@@ -149,7 +150,7 @@ f1_score: mean: 81.3485323661658 , std :3.627310607374865
 
 Since the dataset has class imbalance & the dataset size is small , it is better to stick to less complex models , as more complex models like random forest tend to overfit in such cases as we have seen in our tests above. So from the final results of the performance of various machine learning mdoels , it is wise to choose logistic regression as it tends to provide stable results & works well for class imbalances. 
 
-Also since our dataset is very small using k-fold cross validation will give us a better idea of how different algorithms are performing rather than a single test train split.
+
 
 
 
