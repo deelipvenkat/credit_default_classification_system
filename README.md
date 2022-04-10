@@ -278,10 +278,6 @@ Create a new file in your root directory name runtime.txt and mention your pytho
 python-3.8.13
 ```
 
-### DEPLOYMENT SAMPLES(add images)
-
-
-
 ### END NOTE 
 
 
