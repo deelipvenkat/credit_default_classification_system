@@ -1,4 +1,4 @@
-# Credit Default Classification System (description build in progress)
+# Credit Default Classification System
 
 ## PROJECT DEMO
 
