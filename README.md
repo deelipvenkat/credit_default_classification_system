@@ -1,5 +1,7 @@
 # Credit Default Classification System (description build in progress)
 
+## PROJECT DEMO
+
 ![](https://github.com/deelipvenkat/credit_default_classification_system/blob/main/project_demo.gif)
 
 ### OBJECTIVE
