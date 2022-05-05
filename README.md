@@ -143,7 +143,7 @@ steps.append(('scaler', StandardScaler()))
 steps.append(('log_model', LogisticRegression(random_state=0,C=0.00001)))
 pipeline = Pipeline(steps=steps)
 # define the evaluation procedure
-cv = RepeatedStratifiedKFold(n_splits=5, n_repeats=3, random_state=1)
+cv = RepeatedStratifiedKFold(n_splits=5, n_repeats=5, random_state=1)
 # evaluate the model using cross-validation
 scores = cross_val_score(pipeline, x_train, y_train, scoring='f1', cv=cv, n_jobs=-1)
 # report performance
